@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -84,12 +85,45 @@ export default {
 					to: {
 						height: '0'
 					}
-				}
+				},
+        'fade-in': {
+          '0%': { opacity: '0', transform: 'translateY(10px)' },
+          '100%': { opacity: '1', transform: 'translateY(0)' }
+        },
+        'fade-out': {
+          '0%': { opacity: '1', transform: 'translateY(0)' },
+          '100%': { opacity: '0', transform: 'translateY(10px)' }
+        },
+        'scale-in': {
+          '0%': { transform: 'scale(0.95)', opacity: '0' },
+          '100%': { transform: 'scale(1)', opacity: '1' }
+        },
+        'pulse-opacity': {
+          '0%, 100%': { opacity: '0.6' },
+          '50%': { opacity: '0.9' }
+        },
+        'spin-slow': {
+          '0%': { transform: 'rotate(0deg)' },
+          '100%': { transform: 'rotate(360deg)' }
+        },
+        'shimmer': {
+          '100%': { transform: 'translateX(100%)' }
+        }
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
-			}
+				'accordion-up': 'accordion-up 0.2s ease-out',
+        'fade-in': 'fade-in 0.5s ease-out forwards',
+        'fade-out': 'fade-out 0.3s ease-out forwards',
+        'scale-in': 'scale-in 0.4s ease-out forwards',
+        'pulse-opacity': 'pulse-opacity 2s ease-in-out infinite',
+        'spin-slow': 'spin-slow 3s linear infinite',
+        'shimmer': 'shimmer 2s infinite'
+			},
+      transitionDuration: {
+        '1500': '1500ms',
+        '2000': '2000ms',
+      }
 		}
 	},
 	plugins: [require("tailwindcss-animate")],
